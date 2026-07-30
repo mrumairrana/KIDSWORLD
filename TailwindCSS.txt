@@ -1,0 +1,30 @@
+npm install -D tailwindcss
+npm uninstall tailwindcss @tailwindcss/cli
+npm install -D tailwindcss@3 postcss autoprefixer
+npx tailwindcss init -p
+in config content: ["./src/**/*.{html,js}"],
+
+make src>input.css =>
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+npx tailwindcss -i ./src/input.css -o ./src/output.css --watch
+
+make index.html in src
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./output.css">
+</head>
+<body>
+
+    <h1 class="text-3xl font-bold underline">
+        Hello world!
+    </h1>
+
+</body>
+</html>
